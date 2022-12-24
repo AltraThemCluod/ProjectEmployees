@@ -1,0 +1,343 @@
+﻿@{
+    ViewData["Title"] = "Manage Employee";
+}
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <h4 class="mb-sm-0 font-size-18">Manage Employee</h4>
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item active">Manage Employee</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header p-2 d-flex align-items-center justify-content-between">
+                        <div>
+                            <h4 class="card-title">Manage Employee</h4>
+                            <p class="card-title-desc">
+                                From this place you can manage employee
+                            </p>
+                        </div>
+                        <a href="@Url.Action("Details","Home")" class="btn btn-primary waves-effect waves-light button w-md">Add New Employee</a>
+                    </div>
+                   <div class="card-body">
+                       <div class="row mb-3 justify-content-end">
+                            <div class="col-lg-3">
+                                Search:
+                                <input type="search" id="employee_search" onkeyup="searchData();" class="form-control form-control-sm w-100" placeholder="Search here...">
+                            </div>
+                        </div>
+                        <table class="table table-bordered nowrap w-100">
+                            <thead>
+                            <tr>
+                                <th>
+                                    <div id="desc_id" style="display:none;" onclick="EmployeeDataTable(0,0,'desc','Id')">
+                                        Id 
+                                        <span>
+                                            <i class="bx bx-up-arrow-alt align-middle" style="font-size: 15px;"></i>
+                                        </span>
+                                    </div>
+                                    <div id="asc_id" onclick="EmployeeDataTable(0,0,'asc','Id')">
+                                        Id 
+                                        <span>
+                                            <i class="bx bx-down-arrow-alt align-middle" style="font-size: 15px;"></i>
+                                        </span>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div id="desc_name" style="display:none;" onclick="EmployeeDataTable(0,0,'desc','Name')">
+                                        User Details 
+                                        <span>
+                                            <i class="bx bx-up-arrow-alt align-middle" style="font-size: 15px;"></i>
+                                        </span>
+                                    </div>
+                                    <div id="asc_name" onclick="EmployeeDataTable(0,0,'asc','Name')">
+                                        User Details 
+                                        <span>
+                                            <i class="bx bx-down-arrow-alt align-middle" style="font-size: 15px;"></i>
+                                        </span>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div id="desc_email" style="display:none;" onclick="EmployeeDataTable(0,0,'desc','Email')">
+                                        Credentials
+                                        <span>
+                                            <i class="bx bx-up-arrow-alt align-middle" style="font-size: 15px;"></i>
+                                        </span>
+                                    </div>
+                                    <div id="asc_email" onclick="EmployeeDataTable(0,0,'asc','Email')">
+                                        Credentials 
+                                        <span>
+                                            <i class="bx bx-down-arrow-alt align-middle" style="font-size: 15px;"></i>
+                                        </span>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div id="desc_birthDate" style="display:none;" onclick="EmployeeDataTable(0,0,'desc','BirthDate')">
+                                         Birth Date
+                                        <span>
+                                            <i class="bx bx-up-arrow-alt align-middle" style="font-size: 15px;"></i>
+                                        </span>
+                                    </div>
+                                    <div id="asc_birthDate" onclick="EmployeeDataTable(0,0,'asc','BirthDate')">
+                                         Birth Date 
+                                        <span>
+                                            <i class="bx bx-down-arrow-alt align-middle" style="font-size: 15px;"></i>
+                                        </span>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div id="desc_joiningDate" style="display:none;" onclick="EmployeeDataTable(0,0,'desc','JoiningDate')">
+                                        Joining Date
+                                        <span>
+                                            <i class="bx bx-up-arrow-alt align-middle" style="font-size: 15px;"></i>
+                                        </span>
+                                    </div>
+                                    <div id="asc_joiningDate" onclick="EmployeeDataTable(0,0,'asc','JoiningDate')">
+                                        Joining Date
+                                        <span>
+                                            <i class="bx bx-down-arrow-alt align-middle" style="font-size: 15px;"></i>
+                                        </span>
+                                    </div>
+                                </th>
+                                <th>
+                                    <div id="desc_salary" style="display:none;" onclick="EmployeeDataTable(0,0,'desc','Salary')">
+                                        Salary
+                                        <span>
+                                            <i class="bx bx-up-arrow-alt align-middle" style="font-size: 15px;"></i>
+                                        </span>
+                                    </div>
+                                    <div id="asc_salary" onclick="EmployeeDataTable(0,0,'asc','Salary')">
+                                        Salary
+                                        <span>
+                                            <i class="bx bx-down-arrow-alt align-middle" style="font-size: 15px;"></i>
+                                        </span>
+                                    </div>
+                                </th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody id="employee_data">
+                                
+                            </tbody>
+                        </table>
+                        <div class="w-100 d-flex justify-content-end mt-2">
+                            <div class="btn-group pagination" role="group" aria-label="First group" id="paginationNumber">
+                     
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- container-fluid -->
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            EmployeeDataTable();
+        });
+
+        //search employee Data
+        function searchData(){
+            //search box on key press call employee data table function
+            EmployeeDataTable();
+        }
+
+        //Pagination
+        var PagelistCount = 0;
+       
+        function Pagination() {
+             var OffsetCount = 0;
+            for (var Pages = 0; Pages < PagelistCount / 5; Pages++) {
+                var pageNum = Pages + 1;
+                $("#paginationNumber").append(`<button type="button" id="pageButton_${Pages}" onclick="EmployeeDataTable(${OffsetCount},${Pages});" class="btn btn-light">${pageNum}</button>`)
+                OffsetCount = OffsetCount + 5;
+            }
+            $(`#pageButton_0`).addClass("page-link");
+            $(`#pageButton_0`).prop('disabled', true);
+        }
+
+
+        function SetSortingArrow(OrderBy,Colum){
+            
+            /// Id sorting arrow
+            if(OrderBy == "desc" && Colum == "Id"){
+                $("#asc_id").show();
+                $("#desc_id").hide();
+            }else if(OrderBy == "asc" && Colum == "Id"){
+                $("#asc_id").hide();
+                $("#desc_id").show();
+            }
+
+            /// Name sorting arrow
+            if(OrderBy == "desc" && Colum == "Name"){
+                $("#asc_name").show();
+                $("#desc_name").hide();
+            }else{
+                $("#asc_name").hide();
+                $("#desc_name").show();
+            }
+
+            /// Email sorting arrow
+            if(OrderBy == "desc" && Colum == "Email"){
+                $("#asc_email").show();
+                $("#desc_email").hide();
+            }else{
+                $("#asc_email").hide();
+                $("#desc_email").show();
+            }
+
+            /// BirthDate sorting arrow
+            if(OrderBy == "desc" && Colum == "BirthDate"){
+                $("#asc_birthDate").show();
+                $("#desc_birthDate").hide();
+            }else{
+                $("#asc_birthDate").hide();
+                $("#desc_birthDate").show();
+            }
+            
+            /// JoiningDate sorting arrow
+            if(OrderBy == "desc" && Colum == "JoiningDate"){
+                $("#asc_joiningDate").show();
+                $("#desc_joiningDate").hide();
+            }else{
+                $("#asc_joiningDate").hide();
+                $("#desc_joiningDate").show();
+            }
+
+            /// Salary sorting arrow
+            if(OrderBy == "desc" && Colum == "Salary"){
+                $("#asc_salary").show();
+                $("#desc_salary").hide();
+            }else{
+                $("#asc_salary").hide();
+                $("#desc_salary").show();
+            }
+        }
+
+        function EmployeeDataTable(OffsetCount,Pages,OrderBy,Colum){
+            debugger;
+            SetSortingArrow(OrderBy,Colum);
+
+            $("#employee_data").html("");
+            $("#paginationNumber").html("");
+
+            $.ajax({
+                type: 'GET',
+                url: "@Url.Action("GetEmployeeAllData", "Home")",
+                async: false,
+                data: ({ 
+                    Offset: OffsetCount,
+                    Limit: 5,
+                    Search: $("#employee_search").val(),
+                    OrderBy : OrderBy,
+                    ColumName : Colum
+                }),
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    debugger;
+                    if(response.values.length > 0)
+                    {
+                        PagelistCount = response.totalRecord;
+
+                        for(var i = 0; i < response.values.length; i++)
+                        {
+                            $("#employee_data").append(`<tr>
+                                <td>${response.values[i].id}</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <img src="${response.values[i].profileImage == null || response.values[i].profileImage == "" ? "../assets/images/users/no-user-found.png" : response.values[i].profileImage}" alt="Employee Profile" class="rounded-circle avatar-xl object-fit-cover">
+                                        </div>
+                                        &nbsp; &nbsp;
+                                        <div>
+                                            <p class="mb-1"><b>User Name : </b> ${response.values[i].name == "" || response.values[i].name == null ? "-" : response.values[i].name}</p>
+                                            <p class="mb-0"><b>Department : </b> ${response.values[i].departmentName == "" || response.values[i].departmentName == null ? "-" : response.values[i].departmentName}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="mb-1"><b>Email : </b> ${response.values[i].email == "" || response.values[i].email == null ? "-" : `<a href="mailto:${response.values[i].email}">${response.values[i].email}</a>`}</p>
+                                    <p class="mb-1"><b>Password : </b> ${response.values[i].password == "" || response.values[i].password == null ? "-" : response.values[i].password}</p>
+                                </td>
+                                <td>${response.values[i].birthDate == "" || response.values[i].birthDate == null ? "-" : response.values[i].birthDate}</td>
+                                <td>${response.values[i].joiningDate == "" || response.values[i].joiningDate == null ? "-" : response.values[i].joiningDate}</td>
+                                <td>${response.values[i].salary == "" || response.values[i].salary == null ? "-" : response.values[i].salary}</td>
+                                <td>
+                                    <a href="@Url.Action("Details","Home")?ri=${btoa(response.values[i].id)}" class="cur-pointer-icon"><i class="bx bx-edit-alt"></i></a>
+                                    <label class="cur-pointer-icon" onclick="ConfirmEmployeeDelete('${btoa(response.values[i].id)}');"><i class="bx bx-trash-alt"></i></label>
+                                </td>
+                            </tr>`)
+                        }
+
+                        //Pagination
+                        Pagination();
+
+                        //pagination page active / in-active
+                        $("#paginationNumber button").removeClass("page-link");
+                        $("#paginationNumber button").prop('disabled', false);
+                        $("#pageButton_" +Undefined(Pages)).addClass("page-link");
+                        $("#pageButton_" +Undefined(Pages)).prop('disabled', true);
+                    }else{
+                        //data no record message
+                        $("#employee_data").append(`
+                            <tr class="text-center">
+                                <td colspan="6">No records found</td>
+                            </tr>
+                        `)
+                    }
+
+                },
+                error: function (response) {
+                    $.notify("Opps! An error occured ! Please try again.", "error");
+                }
+            });
+        }
+
+
+        ///////Employee data delete //////////////////////////////////
+        //Delete confirmation function
+        function ConfirmEmployeeDelete(Id) {
+            if (confirm("Are you sure? you want to delete this employee")) {
+                EmployeeDelete(Id);
+            }
+        }
+
+        //Employee data delete function
+        function EmployeeDelete(Id) {
+            $.ajax({
+                type: 'POST',
+                url: "@Url.Action("DeleteEmployee", "Home")",
+                async: false,
+                data: ({ Id: Id }),
+                dataType: 'json',
+                success: function (response) {
+                    debugger;
+                    EmployeeDataTable();
+                    if (response == true) {
+                        $.notify("Employee data deleted successfully", "success");
+                    } else {
+                        $.notify("Opps! An error occured ! Please try again.", "error");
+                    }
+                },
+                error: function (response) {
+                    $.notify("Opps! An error occured ! Please try again.", "error");
+                }
+            });
+        }
+    </script>
+}

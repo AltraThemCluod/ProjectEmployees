@@ -1,0 +1,211 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <title>Employee - @ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="~/Content/assets/images/small-logo.png">
+
+    <!-- plugin css -->
+    <link href="../assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+
+    <!-- preloader css -->
+    <link rel="stylesheet" href="../Content/assets/css/preloader.min.css" type="text/css" />
+
+    <!-- Bootstrap Css -->
+    <link href="../assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="../assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <style>
+        .pace {
+            display: none !important;
+        }
+        .header-profile-user {
+            height: 45px;
+            width: 45px;
+            object-fit: cover;
+            background-color: var(--bs-gray-600);
+            padding: 0px;
+        }
+
+        .btn-primary {
+            box-shadow: none;
+            background: #18515b;
+            border-color: #18515b;
+        }
+
+            .btn-primary.disabled, .btn-primary:disabled {
+                background: #18515b;
+                border-color: #18515b;
+            }
+
+            .btn-check:active + .btn-primary, .btn-check:checked + .btn-primary, .btn-primary.active, .btn-primary:active, .show > .btn-primary.dropdown-toggle {
+                background: #154048;
+                border-color: #18515b;
+            }
+
+            .btn-primary:hover {
+                background: #154048;
+                border-color: #18515b;
+            }
+
+        .spinner-border {
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 0.2em solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+        }
+
+        .notifyjs-bootstrap-base {
+            font-weight: 500 !important;
+        }
+
+        .field-validation-error span {
+            color: red;
+            font-size: 11px;
+        }
+        .dt-buttons{
+            display:none;
+        }
+        .cur-pointer-icon {
+            cursor: pointer;
+            font-size:17px;
+        }
+        .object-fit-cover {
+            object-fit: cover;
+        }
+        
+    </style>
+</head>
+
+<body class="pace-running sidebar-enable" data-sidebar-size="lg">
+
+    <!-- <body data-layout="horizontal"> -->
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box">
+                        <a href="@Url.Action("Index","Home")" class="logo logo-dark">
+                            <span class="logo-sm">
+                                <img src="../assets/images/logo-sm.svg" alt="" height="24">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="../assets/images/logo-sm.svg" alt="" height="24"> <span class="logo-txt">Employee</span>
+                            </span>
+                        </a>
+                        <a href="@Url.Action("Index","Home")" class="logo logo-light">
+                            <span class="logo-sm">
+                                <img src="../assets/images/logo-sm.svg" alt="" height="24">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="../assets/images/logo-sm.svg" alt="" height="24"> <span class="logo-txt">Employee</span>
+                            </span>
+                        </a>
+                    </div>
+
+                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item" id="vertical-menu-btn">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="vertical-menu">
+
+            <div data-simplebar class="h-100">
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled" id="side-menu">
+                        <li class="menu-title" data-key="t-menu">Menu</li>
+
+                        <li>
+                            <a href="@Url.Action("Index","Home")">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                <span data-key="t-employee">Manage Employee</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+
+            @RenderBody()
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script> © Employee.
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+
+    <div class="rightbar-overlay"></div>
+    <!-- JAVASCRIPT -->
+    <script src="../assets/libs/jquery/jquery.min.js"></script>
+    <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="../assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="../assets/libs/node-waves/waves.min.js"></script>
+    <script src="../assets/libs/feather-icons/feather.min.js"></script>
+    <!-- pace js -->
+    <script src="../assets/libs/pace-js/pace.min.js"></script>
+
+    <!-- apexcharts -->
+    <script src="../assets/libs/apexcharts/apexcharts.min.js"></script>
+
+    <!-- Plugins js-->
+    <script src="../assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="../assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- dashboard init -->
+    <script src="../assets/js/pages/dashboard.init.js"></script>
+    <script src="../jquery-validate/jquery.validate.js"></script>
+    <script src="../jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="../jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+    <script src="../assets/js/app.js"></script>
+
+    @*jquery server side validation*@
+    <script src="~/Content/jquery-validate/jquery.validate.js"></script>
+    <script src="~/Content/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Content/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
+    @RenderSection("scripts", required: false)
+    @Html.Raw(ViewBag.openPopup)
+
+    <script>
+        function Undefined(val){
+            return ~~val;
+        }
+    </script>
+
+</body>
+<!-- Mirrored from themesbrand.com/minia/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 15 May 2022 15:37:33 GMT -->
+</html>
